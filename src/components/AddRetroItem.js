@@ -1,10 +1,15 @@
 import React from 'react';
+import * as firebase from 'firebase';
 import '../AddRetroItem.css';
 
 class AddRetroItem extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.refs.input.value);
+    const db = firebase.database();
+    const dbRef = db.ref();
+    dbRef.set({
+      data: this.refs.input.value
+    });
     this.form.reset();
   };
 
