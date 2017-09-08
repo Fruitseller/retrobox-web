@@ -2,23 +2,32 @@ import React from 'react';
 import '../AddRetroItem.css';
 
 class AddRetroItem extends React.Component {
-  onChange = values => {
-    console.log(values);
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.refs.input.value);
+    this.form.reset();
   };
 
   render() {
     return (
-      <div className="input">
-        <div className="input-container">
-          <input
-            onChange={this.onChange}
-            type="text"
-            className="input-field"
-            placeholder="Enter your retro thoughts"
-          />
-          <div className="input-field-shadow" />
+      <form
+        className="form"
+        onSubmit={this.handleSubmit}
+        ref={form => (this.form = form)}
+      >
+        <div className="input">
+          <div className="input-container">
+            <input
+              type="text"
+              className="input-field"
+              placeholder="Enter your retro thoughts"
+              ref="input"
+            />
+            <div className="input-field-shadow" />
+          </div>
         </div>
-      </div>
+        <input type="submit" hidden />
+      </form>
     );
   }
 }
