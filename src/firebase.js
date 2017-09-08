@@ -1,5 +1,4 @@
 import * as firebase from 'firebase';
-let database;
 export const init = () => {
   let config = {
     apiKey: 'AIzaSyBv2fwnIwQT39paxU_AsUShYE4KMqPyySw',
@@ -10,5 +9,4 @@ export const init = () => {
     messagingSenderId: '916971129194'
   };
   firebase.initializeApp(config);
-  database = firebase.database();
 };

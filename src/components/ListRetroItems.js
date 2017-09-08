@@ -5,21 +5,32 @@ class ListRetroItems extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: ''
+      data: {}
     };
   }
   componentDidMount() {
     const db = firebase.database();
     const dbRef = db.ref().child('data');
     dbRef.on('value', snapshot => {
-      this.setState({
-        data: snapshot.val()
-      });
+      if (snapshot.val()) {
+        this.setState({
+          data: snapshot.val()
+        });
+      }
     });
   }
 
   render() {
-    return <div>{this.state.data}</div>;
+    return (
+      <div>
+        <h1>Sprint thoughts</h1>
+        <ul>
+          {Object.keys(this.state.data).map(key => {
+            return <li key={key}>{this.state.data[key]}</li>;
+          })}
+        </ul>
+      </div>
+    );
   }
 }
 

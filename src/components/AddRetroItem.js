@@ -3,12 +3,28 @@ import * as firebase from 'firebase';
 import '../AddRetroItem.css';
 
 class AddRetroItem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {}
+    };
+  }
+  componentDidMount() {
+    const db = firebase.database();
+    const dbRef = db.ref().child('data');
+    dbRef.on('value', snapshot => {
+      this.setState({
+        data: snapshot.val()
+      });
+    });
+  }
   handleSubmit = event => {
     event.preventDefault();
     const db = firebase.database();
-    const dbRef = db.ref();
+    const dbRef = db.ref().child('data');
     dbRef.set({
-      data: this.refs.input.value
+      ...this.state.data,
+      [Date.now()]: this.refs.input.value
     });
     this.form.reset();
   };
