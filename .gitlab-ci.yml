@@ -1,6 +1,12 @@
 image: node:8.5.0 # can be upgraded, depending on your node version used
 
-build site:
+test site:
+  stage: test
+  script:
+  - yarn install
+  - yarn test
+
+build and deploy site:
   stage: deploy
   script:
   - yarn install
@@ -10,19 +16,8 @@ build site:
   artifacts:
     paths:
     - public # mandatory, other folder won't work
-  only:
-  - master # or dev, the branch you want to publish
-
-test site:
-  stage: test
-  script:
-  - yarn install
-  - yarn test
-
-deploy site:
-  stage: deploy
-  script:
-  - echo 'foo'
   environment:
     name: heroku
     url: https://retrobox-web.herokuapp.com
+  only:
+  - master # or dev, the branch you want to publish
