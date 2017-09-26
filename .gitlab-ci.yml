@@ -1,18 +1,3 @@
-image: alpine:latest # can be upgraded, depending on your node version used
-
-build site:
-  image: node:8.5
-  stage: build
-  script:
-  - yarn install
-  - yarn build
-  - rm -rf public
-  - mv build public
-  artifacts:
-    paths:
-    - public # mandatory, other folder won't work
-  only:
-  - master # or dev, the branch you want to publish
 
 test site:
   image: node:8.5
