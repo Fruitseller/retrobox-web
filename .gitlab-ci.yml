@@ -1,4 +1,4 @@
-image: node:8.5.0 # can be upgraded, depending on your node version used
+image: node-ruby-dpl # can be upgraded, depending on your node version used
 
 test site:
   stage: test
