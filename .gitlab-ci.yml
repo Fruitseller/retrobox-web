@@ -1,0 +1,20 @@
+image: node:8.5.0 # can be upgraded, depending on your node version used
+
+build site:
+  stage: deploy
+  script:
+  - yarn install
+  - yarn build
+  - rm -rf public
+  - mv build public
+  artifacts:
+    paths:
+    - public # mandatory, other folder won't work
+  only:
+  - master # or dev, the branch you want to publish
+
+test site:
+  stage: test
+  script:
+  - yarn install
+  - yarn test
