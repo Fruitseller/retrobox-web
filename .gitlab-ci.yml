@@ -13,6 +13,8 @@ build and deploy site:
   - yarn build
   - rm -rf public
   - mv build public
+  - gem install dpl
+  - dpl --provider=heroku --app=retrobox-web --api-key=$HEROKU_API_KEY
   artifacts:
     paths:
     - public # mandatory, other folder won't work
