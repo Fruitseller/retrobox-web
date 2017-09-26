@@ -18,3 +18,11 @@ test site:
   script:
   - yarn install
   - yarn test
+
+deploy site:
+  stage: deploy
+  script:
+  - echo 'foo'
+  environment:
+    name: heroku
+    url: https://retrobox-web.herokuapp.com
