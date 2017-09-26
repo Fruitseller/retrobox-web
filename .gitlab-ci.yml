@@ -1,25 +1,32 @@
-image: node-ruby-dpl # can be upgraded, depending on your node version used
+image: alpine:latest # can be upgraded, depending on your node version used
 
-test site:
-  stage: test
-  script:
-  - yarn install
-  - yarn test
-
-build and deploy site:
-  stage: deploy
+build site:
+  image: node:8.5
+  stage: build
   script:
   - yarn install
   - yarn build
   - rm -rf public
   - mv build public
-  - gem install dpl
-  - dpl --provider=heroku --app=retrobox-web --api-key=$HEROKU_API_KEY
   artifacts:
     paths:
     - public # mandatory, other folder won't work
+  only:
+  - master # or dev, the branch you want to publish
+
+test site:
+  image: node:8.5
+  stage: test
+  script:
+  - yarn install
+  - yarn test
+
+deploy site:
+  image: ruby:2.1
+  stage: deploy
+  script:
+  - gem install dpl
+  - dpl --provider=heroku --app=retrobox-web --api-key=$HEROKU_API_KEY
   environment:
     name: heroku
     url: https://retrobox-web.herokuapp.com
-  only:
-  - master # or dev, the branch you want to publish
