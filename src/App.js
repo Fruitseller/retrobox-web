@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AddRetroItem from './components/AddRetroItem';
 import ListRetroItems from './components/ListRetroItems';
+import TeamPicker from './components/TeamPicker';
+import NotFound from './components/NotFound';
 import firebase from 'firebase';
 import './App.css';
-import { app, base } from './base';
+import { app } from './base';
 
 class App extends Component {
   state = {
@@ -15,6 +17,7 @@ class App extends Component {
   componentDidMount() {
     app.auth().onAuthStateChanged((user, error) => {
       if (user) {
+        console.log('user', user.displayName);
         this.authHandler(null, { user });
       }
     });
@@ -50,6 +53,7 @@ class App extends Component {
       .signInWithPopup(provider)
       .then(authData => {
         console.log('authData', authData);
+        console.log('name', authData.additionalUserInfo.profile.name);
       });
   };
 
@@ -89,8 +93,12 @@ class App extends Component {
       <Router>
         <div className="App">
           <button onClick={this.logout}>Log Out!</button>
-          <Route exact path="/" component={AddRetroItem} />
-          <Route path="/list" component={ListRetroItems} />
+          <Switch>
+            <Route exact path="/" component={TeamPicker} />
+            <Route exact path="/team/:teamId" component={AddRetroItem} />
+            <Route exact path="/team/:teamId/list" component={ListRetroItems} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
     );
