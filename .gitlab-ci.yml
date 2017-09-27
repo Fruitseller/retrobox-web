@@ -5,6 +5,8 @@ test site:
   script:
   - yarn install
   - yarn test
+  only:
+  - master
 
 deploy site:
   image: ruby:2.1
@@ -15,3 +17,5 @@ deploy site:
   environment:
     name: heroku
     url: https://retrobox-web.herokuapp.com
+  only:
+  - master
