@@ -1,30 +1,37 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import { withRouter } from 'react-router';
+import { base } from './../base';
 import '../AddRetroItem.css';
 
 class AddRetroItem extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: {}
+      items: {}
     };
   }
+
   componentDidMount() {
-    const db = firebase.database();
-    const dbRef = db.ref().child('data');
-    dbRef.on('value', snapshot => {
-      this.setState({
-        data: snapshot.val()
-      });
+    this.ref = base.syncState(this.props.match.params.teamId, {
+      context: this,
+      state: 'items'
     });
   }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
   handleSubmit = event => {
     event.preventDefault();
-    const db = firebase.database();
-    const dbRef = db.ref().child('data');
-    dbRef.set({
-      ...this.state.data,
-      [Date.now()]: this.refs.input.value
+    this.setState({
+      items: {
+        [this.props.uid]: {
+          ...this.state.items,
+          [Date.now()]: this.refs.input.value
+        }
+      }
     });
     this.form.reset();
   };
@@ -53,4 +60,4 @@ class AddRetroItem extends React.Component {
   }
 }
 
-export default AddRetroItem;
+export default withRouter(AddRetroItem);

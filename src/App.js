@@ -85,6 +85,10 @@ class App extends Component {
   };
 
   render() {
+    const MyAddRetroItem = props => {
+      return <AddRetroItem uid={this.state.uid} {...props} />;
+    };
+
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>;
     }
@@ -95,7 +99,7 @@ class App extends Component {
           <button onClick={this.logout}>Log Out!</button>
           <Switch>
             <Route exact path="/" component={TeamPicker} />
-            <Route exact path="/team/:teamId" component={AddRetroItem} />
+            <Route exact path="/team/:teamId" render={MyAddRetroItem} />
             <Route exact path="/team/:teamId/list" component={ListRetroItems} />
             <Route component={NotFound} />
           </Switch>
