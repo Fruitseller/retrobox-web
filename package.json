@@ -12,6 +12,7 @@
     "material-ui": "^1.0.0-beta.12",
     "prettier": "^1.7.0",
     "raf": "^3.3.2",
+    "re-base": "^3.0.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router": "^4.2.0",
