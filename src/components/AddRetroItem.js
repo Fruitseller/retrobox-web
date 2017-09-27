@@ -1,5 +1,4 @@
 import React from 'react';
-import * as firebase from 'firebase';
 import { withRouter } from 'react-router';
 import { base } from './../base';
 import '../AddRetroItem.css';
