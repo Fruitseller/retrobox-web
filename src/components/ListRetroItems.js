@@ -1,5 +1,5 @@
 import React from 'react';
-import * as firebase from 'firebase';
+import { base } from './../base';
 import { withStyles } from 'material-ui/styles';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 
@@ -15,18 +15,13 @@ class ListRetroItems extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: {}
+      items: {}
     };
   }
   componentDidMount() {
-    const db = firebase.database();
-    const dbRef = db.ref().child('data');
-    dbRef.on('value', snapshot => {
-      if (snapshot.val()) {
-        this.setState({
-          data: snapshot.val()
-        });
-      }
+    this.ref = base.bindToState(this.props.match.params.teamId, {
+      context: this,
+      state: 'items'
     });
   }
 
@@ -35,12 +30,19 @@ class ListRetroItems extends React.Component {
       <div className={this.props.classes.root}>
         <h1>Sprint thoughts</h1>
         <List>
-          {Object.keys(this.state.data).map(key => {
-            return (
-              <ListItem key={key}>
-                <ListItemText primary={this.state.data[key]} />
-              </ListItem>
-            );
+          {Object.keys(this.state.items).map(author => {
+            return Object.keys(
+              this.state.items[author]
+            ).map(messageTimestamp => {
+              return (
+                <ListItem key={messageTimestamp}>
+                  {/*TODO add Author as alt text*/}
+                  <ListItemText
+                    primary={this.state.items[author][messageTimestamp]}
+                  />
+                </ListItem>
+              );
+            });
           })}
         </List>
       </div>
