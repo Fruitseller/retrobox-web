@@ -10,8 +10,7 @@ import { app } from './base';
 
 class App extends Component {
   state = {
-    uid: null,
-    owner: null
+    uid: null
   };
 
   componentDidMount() {
@@ -33,16 +32,8 @@ class App extends Component {
       .ref()
       .child('data');
     storeRef.once('value', snapshot => {
-      const data = snapshot.val() || {};
-      if (!data.owner) {
-        storeRef.set({
-          owner: authData.user.uid
-        });
-      }
-
       this.setState({
-        uid: authData.user.uid,
-        owner: data.owner || authData.user.uid
+        uid: authData.user.uid
       });
     });
   };
@@ -52,7 +43,6 @@ class App extends Component {
       .auth()
       .signInWithPopup(provider)
       .then(authData => {
-        console.log('authData', authData);
         console.log('name', authData.additionalUserInfo.profile.name);
       });
   };
@@ -66,13 +56,6 @@ class App extends Component {
     return (
       <nav className="login">
         <p>Sign in</p>
-        <button
-          className="github"
-          onClick={() =>
-            this.authenticate(new firebase.auth.GithubAuthProvider())}
-        >
-          Log in with github
-        </button>
         <button
           className="google"
           onClick={() =>

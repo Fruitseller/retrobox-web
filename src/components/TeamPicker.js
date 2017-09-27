@@ -5,7 +5,6 @@ class TeamPicker extends Component {
   goToTeam = event => {
     event.preventDefault();
     const teamId = this.teamInput.value;
-    console.log(`Going to ${teamId}`);
     this.props.history.push(`team/${teamId}`);
   };
 

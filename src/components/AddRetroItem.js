@@ -27,7 +27,6 @@ class AddRetroItem extends React.Component {
     this.setState({
       items: {
         [this.props.uid]: {
-          ...this.state.items,
           [Date.now()]: this.refs.input.value
         }
       }
