@@ -1,7 +1,8 @@
 import React from 'react';
-import { base } from './../base';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemText } from 'material-ui/List';
+import List from 'material-ui/List';
+import { base } from './../base';
+import RetroItem from './RetroItem';
 
 const styles = theme => ({
   root: {
@@ -34,14 +35,9 @@ class ListRetroItems extends React.Component {
             return Object.keys(
               this.state.items[author]
             ).map(messageTimestamp => {
-              return (
-                <ListItem key={messageTimestamp}>
-                  {/*TODO add Author as alt text*/}
-                  <ListItemText
-                    primary={this.state.items[author][messageTimestamp]}
-                  />
-                </ListItem>
-              );
+              const key = messageTimestamp;
+              const message = this.state.items[author][messageTimestamp];
+              return <RetroItem key={key} message={message} />;
             });
           })}
         </List>
