@@ -41,7 +41,7 @@ class App extends Component {
   authenticate = provider => {
     app
       .auth()
-      .signInWithPopup(provider)
+      .signInWithRedirect(provider)
       .then(authData => {
         console.log('name', authData.additionalUserInfo.profile.name);
       });
