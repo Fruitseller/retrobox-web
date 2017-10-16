@@ -37,7 +37,7 @@ class ListRetroItems extends React.Component {
             ).map(messageTimestamp => {
               const key = messageTimestamp;
               const message = this.state.items[author][messageTimestamp];
-              return <RetroItem key={key} message={message} />;
+              return <RetroItem key={key} timestamp={key} message={message} />;
             });
           })}
         </List>

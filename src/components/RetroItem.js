@@ -3,7 +3,7 @@ import { ListItem, ListItemText } from 'material-ui/List';
 
 const RetroItem = props => {
   return (
-    <ListItem key={props.key}>
+    <ListItem key={props.timestamp}>
       {/*TODO add Author as alt text*/}
       <ListItemText primary={props.message} />
     </ListItem>
