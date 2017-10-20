@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import List from 'material-ui/List';
-import { base } from './../base';
+import { app, base } from './../base';
 import RetroItem from './RetroItem';
 
 const styles = theme => ({
@@ -26,6 +26,11 @@ class ListRetroItems extends React.Component {
     });
   }
 
+  removeItem = (teamId, author, timestamp) => {
+    const ref = app.database().ref(`/${teamId}/${author}/${timestamp}`);
+    ref.remove();
+  };
+
   render() {
     return (
       <div className={this.props.classes.root}>
@@ -37,7 +42,16 @@ class ListRetroItems extends React.Component {
             ).map(messageTimestamp => {
               const key = messageTimestamp;
               const message = this.state.items[author][messageTimestamp];
-              return <RetroItem key={key} timestamp={key} message={message} />;
+              return (
+                <RetroItem
+                  key={key}
+                  teamId={this.props.match.params.teamId}
+                  author={author}
+                  timestamp={key}
+                  message={message}
+                  removeItem={this.removeItem}
+                />
+              );
             });
           })}
         </List>
