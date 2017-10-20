@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
+import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
+import Input from 'material-ui/Input';
+import Button from 'material-ui/Button';
+
+const styles = theme => ({
+  input: {
+    margin: theme.spacing.unit
+  },
+  button: {
+    margin: theme.spacing.unit
+  }
+});
 
 class TeamPicker extends Component {
   goToTeam = event => {
@@ -9,22 +22,30 @@ class TeamPicker extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
       <form className="team-selector" onSubmit={this.goToTeam}>
-        <h2>Please Enter a Teamname</h2>
-        <input
-          type="text"
-          required
+        <Typography type="headline" component="h2">
+          Please Enter a Teamname
+        </Typography>
+
+        <Input
           placeholder="Team Name"
-          defaultValue="vorstand"
+          className={classes.input}
+          required
+          inputProps={{
+            'aria-label': 'Description'
+          }}
           ref={input => {
             this.teamInput = input;
           }}
         />
-        <button type="submit">Open team Retrobox</button>
+        <Button raised type="submit" className={classes.button}>
+          Open team Retrobox
+        </Button>
       </form>
     );
   }
 }
 
-export default withRouter(TeamPicker);
+export default withStyles(styles)(withRouter(TeamPicker));

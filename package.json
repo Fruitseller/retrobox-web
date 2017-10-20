@@ -9,7 +9,7 @@
     "firebase": "^4.4.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.2.3",
-    "material-ui": "^1.0.0-beta.12",
+    "material-ui": "^1.0.0-beta.17",
     "material-ui-icons": "^1.0.0-beta.17",
     "prettier": "^1.7.0",
     "re-base": "^3.0.3",
