@@ -36,7 +36,7 @@ class TeamPicker extends Component {
           inputProps={{
             'aria-label': 'Description'
           }}
-          ref={input => {
+          inputRef={input => {
             this.teamInput = input;
           }}
         />
