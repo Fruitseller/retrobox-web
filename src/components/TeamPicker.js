@@ -48,4 +48,4 @@ class TeamPicker extends Component {
   }
 }
 
-export default withStyles(styles)(withRouter(TeamPicker));
+export default withRouter(withStyles(styles)(TeamPicker));

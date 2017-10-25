@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div>
+  <nav
+    className="login"
+  >
+    <p>
+      Sign in
+    </p>
+    <button
+      className="google"
+      onClick={[Function]}
+    >
+      Log in with google
+    </button>
+  </nav>
+</div>
+`;
