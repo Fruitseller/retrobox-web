@@ -36,17 +36,17 @@ class ListRetroItems extends React.Component {
       <div className={this.props.classes.root}>
         <h1>Sprint thoughts</h1>
         <List>
-          {Object.keys(this.state.items).map(author => {
+          {Object.keys(this.state.items).map(authorId => {
             return Object.keys(
-              this.state.items[author]
+              this.state.items[authorId]
             ).map(messageTimestamp => {
               const key = messageTimestamp;
-              const message = this.state.items[author][messageTimestamp];
+              const message = this.state.items[authorId][messageTimestamp];
               return (
                 <RetroItem
                   key={key}
                   teamId={this.props.match.params.teamId}
-                  author={author}
+                  authorId={authorId}
                   timestamp={key}
                   message={message}
                   removeItem={this.removeItem}
