@@ -6,11 +6,15 @@ import TeamPicker from './components/TeamPicker';
 import NotFound from './components/NotFound';
 import firebase from 'firebase';
 import './App.css';
-import { app } from './base';
+import { app, base } from './base';
 
 class App extends Component {
   state = {
-    uid: null
+    uid: null,
+    displayName: null,
+    email: null,
+    photoURL: null,
+    userData: {}
   };
 
   componentDidMount() {
@@ -19,6 +23,10 @@ class App extends Component {
         console.log('user', user.displayName);
         this.authHandler(null, { user });
       }
+    });
+    this.ref = base.bindToState(`users/${this.uid}`, {
+      context: this,
+      state: 'userData'
     });
   }
 
@@ -33,7 +41,10 @@ class App extends Component {
       .child('data');
     storeRef.once('value', snapshot => {
       this.setState({
-        uid: authData.user.uid
+        uid: authData.user.uid,
+        displayName: authData.user.displayName,
+        email: authData.user.email,
+        photoURL: authData.user.photoURL
       });
     });
   };
@@ -44,6 +55,9 @@ class App extends Component {
       .signInWithRedirect(provider)
       .then(authData => {
         console.log('name', authData.additionalUserInfo.profile.name);
+        this.setState({
+          userData: authData
+        });
       });
   };
 
@@ -72,6 +86,10 @@ class App extends Component {
       return <AddRetroItem uid={this.state.uid} {...props} />;
     };
 
+    const MyListRetroItems = props => {
+      return <ListRetroItems displayName={this.state.displayName} {...props} />;
+    };
+
     if (!this.state.uid) {
       return <div>{this.renderLogin()}</div>;
     }
@@ -83,7 +101,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={TeamPicker} />
             <Route exact path="/team/:teamId" render={MyAddRetroItem} />
-            <Route exact path="/team/:teamId/list" component={ListRetroItems} />
+            <Route
+              exact
+              path="/team/:teamId/list"
+              component={MyListRetroItems}
+            />
             <Route component={NotFound} />
           </Switch>
         </div>

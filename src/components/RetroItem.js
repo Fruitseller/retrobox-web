@@ -8,11 +8,10 @@ import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 
 const RetroItem = props => {
-  const { teamId, authorId, timestamp, message } = props;
+  const { teamId, authorId, authorName, timestamp, message } = props;
   return (
     <ListItem key={timestamp}>
-      {/*TODO add Author as alt text*/}
-      <ListItemText primary={message} />
+      <ListItemText primary={message} secondary={authorName} />
       <ListItemSecondaryAction>
         <IconButton
           aria-label="Delete"

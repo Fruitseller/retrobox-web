@@ -47,6 +47,7 @@ class ListRetroItems extends React.Component {
                   key={key}
                   teamId={this.props.match.params.teamId}
                   authorId={authorId}
+                  authorName={this.props.displayName}
                   timestamp={key}
                   message={message}
                   removeItem={this.removeItem}
