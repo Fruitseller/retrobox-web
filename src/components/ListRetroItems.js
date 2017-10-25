@@ -20,14 +20,14 @@ class ListRetroItems extends React.Component {
     };
   }
   componentDidMount() {
-    this.ref = base.bindToState(this.props.match.params.teamId, {
+    this.ref = base.bindToState(`data/${this.props.match.params.teamId}`, {
       context: this,
       state: 'items'
     });
   }
 
   removeItem = (teamId, author, timestamp) => {
-    const ref = app.database().ref(`/${teamId}/${author}/${timestamp}`);
+    const ref = app.database().ref(`data/${teamId}/${author}/${timestamp}`);
     ref.remove();
   };
 

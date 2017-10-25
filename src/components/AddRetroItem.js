@@ -12,7 +12,7 @@ class AddRetroItem extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = base.syncState(this.props.match.params.teamId, {
+    this.ref = base.syncState(`data/${this.props.match.params.teamId}`, {
       context: this,
       state: 'items'
     });
