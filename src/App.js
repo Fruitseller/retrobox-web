@@ -79,9 +79,21 @@ class App extends Component {
     );
   };
 
+  addItem = (teamId, uid, message) => {
+    app
+      .database()
+      .ref(`data/${teamId}`)
+      .child(`${uid}`)
+      .update({
+        [Date.now()]: message
+      });
+  };
+
   render() {
     const MyAddRetroItem = props => {
-      return <AddRetroItem uid={this.state.uid} {...props} />;
+      return (
+        <AddRetroItem uid={this.state.uid} addItem={this.addItem} {...props} />
+      );
     };
 
     const MyListRetroItems = props => {

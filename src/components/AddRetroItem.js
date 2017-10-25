@@ -1,36 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { base } from './../base';
 import '../AddRetroItem.css';
 
 class AddRetroItem extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      items: {}
-    };
-  }
-
-  componentDidMount() {
-    this.ref = base.syncState(`data/${this.props.match.params.teamId}`, {
-      context: this,
-      state: 'items'
-    });
-  }
-
-  componentWillUnmount() {
-    base.removeBinding(this.ref);
-  }
-
   handleSubmit = event => {
     event.preventDefault();
-    this.setState({
-      items: {
-        [this.props.uid]: {
-          [Date.now()]: this.refs.input.value
-        }
-      }
-    });
+    this.props.addItem(
+      this.props.match.params.teamId,
+      this.props.uid,
+      this.refs.input.value
+    );
     this.form.reset();
   };
 
@@ -57,5 +37,10 @@ class AddRetroItem extends React.Component {
     );
   }
 }
+
+AddRetroItem.propTypes = {
+  uid: PropTypes.string.isRequired,
+  addItem: PropTypes.func.isRequired
+};
 
 export default withRouter(AddRetroItem);
