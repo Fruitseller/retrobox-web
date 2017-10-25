@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <div
+    className="input"
+  >
+    <div
+      className="input-container"
+    >
+      <input
+        className="input-field"
+        placeholder="Enter your retro thoughts"
+        type="text"
+      />
+      <div
+        className="input-field-shadow"
+      />
+    </div>
+  </div>
+  <input
+    hidden={true}
+    type="submit"
+  />
+</form>
+`;

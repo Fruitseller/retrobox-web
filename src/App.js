@@ -20,7 +20,6 @@ class App extends Component {
   componentDidMount() {
     app.auth().onAuthStateChanged((user, error) => {
       if (user) {
-        console.log('user', user.displayName);
         this.authHandler(null, { user });
       }
     });
@@ -54,7 +53,6 @@ class App extends Component {
       .auth()
       .signInWithRedirect(provider)
       .then(authData => {
-        console.log('name', authData.additionalUserInfo.profile.name);
         this.setState({
           userData: authData
         });
