@@ -10,10 +10,6 @@ import { app, base } from './base';
 
 class App extends Component {
   state = {
-    uid: null,
-    displayName: null,
-    email: null,
-    photoURL: null,
     userData: {}
   };
 
@@ -22,10 +18,6 @@ class App extends Component {
       if (user) {
         this.authHandler(null, { user });
       }
-    });
-    this.ref = base.bindToState(`users/${this.uid}`, {
-      context: this,
-      state: 'userData'
     });
   }
 
@@ -39,12 +31,22 @@ class App extends Component {
       .ref()
       .child('data');
     storeRef.once('value', snapshot => {
-      this.setState({
-        uid: authData.user.uid,
-        displayName: authData.user.displayName,
-        email: authData.user.email,
-        photoURL: authData.user.photoURL
-      });
+      this.setState(
+        {
+          userData: {
+            uid: authData.user.uid,
+            displayName: authData.user.displayName,
+            email: authData.user.email,
+            photoURL: authData.user.photoURL
+          }
+        },
+        () => {
+          app
+            .database()
+            .ref(`users/${this.state.userData.uid}`)
+            .update(this.state.userData);
+        }
+      );
     });
   };
 
@@ -61,7 +63,7 @@ class App extends Component {
 
   logout = () => {
     app.auth().signOut();
-    this.setState({ uid: null });
+    this.setState({ userData: null });
   };
 
   renderLogin = () => {
@@ -92,15 +94,16 @@ class App extends Component {
   render() {
     const MyAddRetroItem = props => {
       return (
-        <AddRetroItem uid={this.state.uid} addItem={this.addItem} {...props} />
+        <AddRetroItem
+          uid={this.state.userData.uid}
+          addItem={this.addItem}
+          {...props}
+        />
       );
     };
 
-    const MyListRetroItems = props => {
-      return <ListRetroItems displayName={this.state.displayName} {...props} />;
-    };
-
-    if (!this.state.uid) {
+    console.log('foo', this.state.userData.uid);
+    if (!this.state.userData.uid) {
       return <div>{this.renderLogin()}</div>;
     }
 
@@ -111,11 +114,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={TeamPicker} />
             <Route exact path="/team/:teamId" render={MyAddRetroItem} />
-            <Route
-              exact
-              path="/team/:teamId/list"
-              component={MyListRetroItems}
-            />
+            <Route exact path="/team/:teamId/list" component={ListRetroItems} />
             <Route component={NotFound} />
           </Switch>
         </div>
