@@ -13,7 +13,7 @@ it('renders without crashing', () => {
       teamId="teamId"
       authorId="authorId"
       authorName="displayName"
-      timestamp={12345678}
+      timestamp="12345678"
       message="massage"
       removeItem={() => {}}
     />
@@ -27,7 +27,7 @@ it('renders correctly', () => {
         teamId="teamId"
         authorId="authorId"
         authorName="displayName"
-        timestamp={12345678}
+        timestamp="12345678"
         message="massage"
         removeItem={() => {}}
       />

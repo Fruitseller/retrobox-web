@@ -36,7 +36,7 @@ RetroItem.propTypes = {
   teamId: PropTypes.string.isRequired,
   authorId: PropTypes.string.isRequired,
   authorName: PropTypes.string.isRequired,
-  timestamp: PropTypes.number.isRequired,
+  timestamp: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   removeItem: PropTypes.func.isRequired
 };
