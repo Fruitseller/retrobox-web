@@ -27,29 +27,32 @@ class ListRetroItems extends React.Component {
         Object.keys(this.state.items).map(authorId => {
           return Object.keys(
             this.state.items[authorId]
-          ).map(messageTimestamp => {
-            return app
+          ).forEach(messageTimestamp => {
+            app
               .database()
               .ref('/users/' + authorId)
               .once('value')
-              .then(snapshot => {
-                this.setState({
-                  items: {
-                    ...this.state.items,
-                    [authorId]: {
-                      ...this.state.items[authorId],
-                      displayName:
-                        (snapshot.val() && snapshot.val().displayName) ||
-                        'Anonymous'
-                    }
-                  }
-                });
-              });
+              .then(this.enrichItemsWithDisplayName(authorId));
           });
         });
       }
     });
   }
+
+  enrichItemsWithDisplayName = authorId => {
+    return snapshot => {
+      this.setState({
+        items: {
+          ...this.state.items,
+          [authorId]: {
+            ...this.state.items[authorId],
+            displayName:
+              (snapshot.val() && snapshot.val().displayName) || 'Anonymous'
+          }
+        }
+      });
+    };
+  };
 
   removeItem = (teamId, author, timestamp) => {
     const ref = app.database().ref(`data/${teamId}/${author}/${timestamp}`);
