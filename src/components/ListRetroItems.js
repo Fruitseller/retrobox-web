@@ -22,18 +22,34 @@ class ListRetroItems extends React.Component {
   componentDidMount() {
     this.ref = base.bindToState(`data/${this.props.match.params.teamId}`, {
       context: this,
-      state: 'items'
+      state: 'items',
+      then: () => {
+        Object.keys(this.state.items).map(authorId => {
+          return Object.keys(
+            this.state.items[authorId]
+          ).map(messageTimestamp => {
+            return app
+              .database()
+              .ref('/users/' + authorId)
+              .once('value')
+              .then(snapshot => {
+                this.setState({
+                  items: {
+                    ...this.state.items,
+                    [authorId]: {
+                      ...this.state.items[authorId],
+                      displayName:
+                        (snapshot.val() && snapshot.val().displayName) ||
+                        'Anonymous'
+                    }
+                  }
+                });
+              });
+          });
+        });
+      }
     });
   }
-
-  getDisplayName = authorId => {
-    //TODO Fix getting displayName for all messages...
-    /*return app.database().ref('/users/' + authorId).once('value').then(function(snapshot) {
-      const displayName = (snapshot.val() && snapshot.val().displayName) || 'Anonymous';
-      return displayName;
-    });*/
-    return 'Anonymous';
-  };
 
   removeItem = (teamId, author, timestamp) => {
     const ref = app.database().ref(`data/${teamId}/${author}/${timestamp}`);
@@ -49,20 +65,24 @@ class ListRetroItems extends React.Component {
             return Object.keys(
               this.state.items[authorId]
             ).map(messageTimestamp => {
-              const key = messageTimestamp;
-              const message = this.state.items[authorId][messageTimestamp];
-              const displayName = this.getDisplayName(authorId);
-              return (
-                <RetroItem
-                  key={key}
-                  teamId={this.props.match.params.teamId}
-                  authorId={authorId}
-                  authorName={displayName}
-                  timestamp={key}
-                  message={message}
-                  removeItem={this.removeItem}
-                />
-              );
+              if (messageTimestamp !== 'displayName') {
+                const key = messageTimestamp;
+                const message = this.state.items[authorId][messageTimestamp];
+                const displayName = this.state.items[authorId].displayName;
+                return (
+                  <RetroItem
+                    key={key}
+                    teamId={this.props.match.params.teamId}
+                    authorId={authorId}
+                    authorName={displayName}
+                    timestamp={key}
+                    message={message}
+                    removeItem={this.removeItem}
+                  />
+                );
+              } else {
+                return null;
+              }
             });
           })}
         </List>

@@ -6,7 +6,7 @@ import TeamPicker from './components/TeamPicker';
 import NotFound from './components/NotFound';
 import firebase from 'firebase';
 import './App.css';
-import { app, base } from './base';
+import { app } from './base';
 
 class App extends Component {
   state = {
@@ -63,7 +63,7 @@ class App extends Component {
 
   logout = () => {
     app.auth().signOut();
-    this.setState({ userData: null });
+    this.setState({ userData: { uid: null } });
   };
 
   renderLogin = () => {
@@ -102,7 +102,6 @@ class App extends Component {
       );
     };
 
-    console.log('foo', this.state.userData.uid);
     if (!this.state.userData.uid) {
       return <div>{this.renderLogin()}</div>;
     }

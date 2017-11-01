@@ -19,7 +19,7 @@ const RetroItem = props => {
   } = props;
   return (
     <ListItem key={timestamp}>
-      <ListItemText primary={message} secondary={authorName} />
+      <ListItemText primary={message} secondary={authorName || 'Anonymous'} />
       <ListItemSecondaryAction>
         <IconButton
           aria-label="Delete"
@@ -35,7 +35,7 @@ const RetroItem = props => {
 RetroItem.propTypes = {
   teamId: PropTypes.string.isRequired,
   authorId: PropTypes.string.isRequired,
-  authorName: PropTypes.string.isRequired,
+  authorName: PropTypes.string,
   timestamp: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   removeItem: PropTypes.func.isRequired
