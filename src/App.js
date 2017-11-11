@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { withStyles } from 'material-ui/styles';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
 import Spinner from 'react-spinkit';
 import AddRetroItem from './components/AddRetroItem';
 import ListRetroItems from './components/ListRetroItems';
@@ -8,6 +13,16 @@ import NotFound from './components/NotFound';
 import firebase from 'firebase';
 import './App.css';
 import { app } from './base';
+
+const styles = theme => ({
+  root: {
+    marginTop: theme.spacing.unit * 3,
+    width: '100%'
+  },
+  flex: {
+    flex: 1
+  }
+});
 
 class App extends Component {
   state = {
@@ -65,28 +80,6 @@ class App extends Component {
       });
   };
 
-  logout = () => {
-    app.auth().signOut();
-    this.setState({ userData: { uid: null }, isLoading: false });
-  };
-
-  renderLogin = () => {
-    return (
-      <nav className="login">
-        <p>Sign in</p>
-        <button
-          className="google"
-          onClick={() => {
-            this.setState({ isLoading: true });
-            return this.authenticate(new firebase.auth.GoogleAuthProvider());
-          }}
-        >
-          Log in with google
-        </button>
-      </nav>
-    );
-  };
-
   addItem = (teamId, uid, message) => {
     app
       .database()
@@ -95,6 +88,54 @@ class App extends Component {
       .update({
         [Date.now()]: message
       });
+  };
+
+  login = () => {
+    this.setState({ isLoading: true });
+    return this.authenticate(new firebase.auth.GoogleAuthProvider());
+  };
+
+  logout = () => {
+    app.auth().signOut();
+    this.setState({ userData: { uid: null }, isLoading: false });
+  };
+
+  renderAppBar = () => {
+    let handleOnClick = this.login;
+    let buttonText = 'Login with google';
+    if (this.state.userData.uid) {
+      handleOnClick = this.logout;
+      buttonText = 'Logout';
+    }
+    return (
+      <div className={this.props.classes.root}>
+        <AppBar>
+          <Toolbar>
+            <Typography
+              type="title"
+              color="inherit"
+              className={this.props.classes.flex}
+            >
+              Retrobox
+            </Typography>
+            <Button color="contrast" onClick={handleOnClick}>
+              {buttonText}
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  };
+
+  renderRoutes = MyAddRetroItem => {
+    return (
+      <Switch>
+        <Route exact path="/" component={TeamPicker} />
+        <Route exact path="/team/:teamId" render={MyAddRetroItem} />
+        <Route exact path="/team/:teamId/list" component={ListRetroItems} />
+        <Route component={NotFound} />
+      </Switch>
+    );
   };
 
   render() {
@@ -109,26 +150,13 @@ class App extends Component {
     };
 
     if (this.state.isLoading) {
-      return <Spinner name="three-bounce" />;
+      return <Spinner name="pacman" color="goldenrod" />;
     } else {
-      if (!this.state.userData.uid) {
-        return <div>{this.renderLogin()}</div>;
-      }
-
       return (
         <Router>
           <div className="App">
-            <button onClick={this.logout}>Log Out!</button>
-            <Switch>
-              <Route exact path="/" component={TeamPicker} />
-              <Route exact path="/team/:teamId" render={MyAddRetroItem} />
-              <Route
-                exact
-                path="/team/:teamId/list"
-                component={ListRetroItems}
-              />
-              <Route component={NotFound} />
-            </Switch>
+            {this.renderAppBar()}
+            {this.state.userData.uid ? this.renderRoutes(MyAddRetroItem) : null}
           </div>
         </Router>
       );
@@ -136,4 +164,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
