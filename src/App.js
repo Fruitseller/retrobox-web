@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Spinner from 'react-spinkit';
 import AddRetroItem from './components/AddRetroItem';
 import ListRetroItems from './components/ListRetroItems';
 import TeamPicker from './components/TeamPicker';
@@ -10,7 +11,8 @@ import { app } from './base';
 
 class App extends Component {
   state = {
-    userData: {}
+    userData: {},
+    isLoading: false
   };
 
   componentDidMount() {
@@ -38,7 +40,8 @@ class App extends Component {
             displayName: authData.user.displayName,
             email: authData.user.email,
             photoURL: authData.user.photoURL
-          }
+          },
+          isLoading: false
         },
         () => {
           app
@@ -53,17 +56,18 @@ class App extends Component {
   authenticate = provider => {
     app
       .auth()
-      .signInWithRedirect(provider)
+      .signInWithPopup(provider)
       .then(authData => {
         this.setState({
-          userData: authData
+          userData: authData,
+          isLoading: true
         });
       });
   };
 
   logout = () => {
     app.auth().signOut();
-    this.setState({ userData: { uid: null } });
+    this.setState({ userData: { uid: null }, isLoading: false });
   };
 
   renderLogin = () => {
@@ -72,8 +76,10 @@ class App extends Component {
         <p>Sign in</p>
         <button
           className="google"
-          onClick={() =>
-            this.authenticate(new firebase.auth.GoogleAuthProvider())}
+          onClick={() => {
+            this.setState({ isLoading: true });
+            return this.authenticate(new firebase.auth.GoogleAuthProvider());
+          }}
         >
           Log in with google
         </button>
@@ -102,23 +108,31 @@ class App extends Component {
       );
     };
 
-    if (!this.state.userData.uid) {
-      return <div>{this.renderLogin()}</div>;
-    }
+    if (this.state.isLoading) {
+      return <Spinner name="three-bounce" />;
+    } else {
+      if (!this.state.userData.uid) {
+        return <div>{this.renderLogin()}</div>;
+      }
 
-    return (
-      <Router>
-        <div className="App">
-          <button onClick={this.logout}>Log Out!</button>
-          <Switch>
-            <Route exact path="/" component={TeamPicker} />
-            <Route exact path="/team/:teamId" render={MyAddRetroItem} />
-            <Route exact path="/team/:teamId/list" component={ListRetroItems} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </Router>
-    );
+      return (
+        <Router>
+          <div className="App">
+            <button onClick={this.logout}>Log Out!</button>
+            <Switch>
+              <Route exact path="/" component={TeamPicker} />
+              <Route exact path="/team/:teamId" render={MyAddRetroItem} />
+              <Route
+                exact
+                path="/team/:teamId/list"
+                component={ListRetroItems}
+              />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </Router>
+      );
+    }
   }
 }
 
