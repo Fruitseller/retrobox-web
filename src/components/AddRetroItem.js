@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import '../AddRetroItem.css';
+import { withStyles } from 'material-ui/styles';
+import Input, { InputLabel } from 'material-ui/Input';
+import { FormControl } from 'material-ui/Form';
+
+const styles = theme => ({
+  formControl: {
+    margin: theme.spacing.unit
+  }
+});
 
 class AddRetroItem extends React.Component {
   handleSubmit = event => {
@@ -9,7 +17,7 @@ class AddRetroItem extends React.Component {
     this.props.addItem(
       this.props.match.params.teamId,
       this.props.uid,
-      this.refs.input.value
+      this.input.value
     );
     this.form.reset();
   };
@@ -21,17 +29,16 @@ class AddRetroItem extends React.Component {
         onSubmit={this.handleSubmit}
         ref={form => (this.form = form)}
       >
-        <div className="input">
-          <div className="input-container">
-            <input
-              type="text"
-              className="input-field"
-              placeholder="Enter your retro thoughts"
-              ref="input"
-            />
-            <div className="input-field-shadow" />
-          </div>
-        </div>
+        <FormControl className={this.props.classes.formControl}>
+          <InputLabel htmlFor="thoughts">Enter your thoughts</InputLabel>
+          <Input
+            id="thoughts"
+            inputRef={input => {
+              this.input = input;
+            }}
+          />
+        </FormControl>
+
         <input type="submit" hidden />
       </form>
     );
@@ -43,4 +50,4 @@ AddRetroItem.propTypes = {
   addItem: PropTypes.func.isRequired
 };
 
-export default withRouter(AddRetroItem);
+export default withStyles(styles)(withRouter(AddRetroItem));
