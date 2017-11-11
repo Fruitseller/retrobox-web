@@ -7,6 +7,7 @@ import {
 } from 'material-ui/List';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
+import Divider from 'material-ui/Divider';
 
 const RetroItem = props => {
   const {
@@ -18,17 +19,20 @@ const RetroItem = props => {
     removeItem
   } = props;
   return (
-    <ListItem key={timestamp}>
-      <ListItemText primary={message} secondary={authorName || 'Anonymous'} />
-      <ListItemSecondaryAction>
-        <IconButton
-          aria-label="Delete"
-          onClick={() => removeItem(teamId, authorId, timestamp)}
-        >
-          <DeleteIcon />
-        </IconButton>
-      </ListItemSecondaryAction>
-    </ListItem>
+    <div>
+      <Divider />
+      <ListItem key={timestamp}>
+        <ListItemText primary={message} secondary={authorName || 'Anonymous'} />
+        <ListItemSecondaryAction>
+          <IconButton
+            aria-label="Delete"
+            onClick={() => removeItem(teamId, authorId, timestamp)}
+          >
+            <DeleteIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
+    </div>
   );
 };
 

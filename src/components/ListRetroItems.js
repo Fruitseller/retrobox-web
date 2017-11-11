@@ -1,15 +1,17 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
 import List from 'material-ui/List';
+import Typography from 'material-ui/Typography';
 import { app, base } from './../base';
 import RetroItem from './RetroItem';
 
 const styles = theme => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    background: theme.palette.background.paper
-  }
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3
+  })
 });
 
 class ListRetroItems extends React.Component {
@@ -25,15 +27,15 @@ class ListRetroItems extends React.Component {
       state: 'items',
       then: () => {
         Object.keys(this.state.items).map(authorId => {
-          return Object.keys(
-            this.state.items[authorId]
-          ).forEach(messageTimestamp => {
-            app
-              .database()
-              .ref('/users/' + authorId)
-              .once('value')
-              .then(this.enrichItemsWithDisplayName(authorId));
-          });
+          return Object.keys(this.state.items[authorId]).forEach(
+            messageTimestamp => {
+              app
+                .database()
+                .ref('/users/' + authorId)
+                .once('value')
+                .then(this.enrichItemsWithDisplayName(authorId));
+            }
+          );
         });
       }
     });
@@ -61,8 +63,8 @@ class ListRetroItems extends React.Component {
 
   render() {
     return (
-      <div className={this.props.classes.root}>
-        <h1>Sprint thoughts</h1>
+      <Paper className={this.props.classes.root} elevation={4}>
+        <Typography type="headline">Sprint thoughts</Typography>
         <List>
           {Object.keys(this.state.items).map(authorId => {
             return Object.keys(this.state.items[authorId])
@@ -85,7 +87,7 @@ class ListRetroItems extends React.Component {
               });
           })}
         </List>
-      </div>
+      </Paper>
     );
   }
 }
