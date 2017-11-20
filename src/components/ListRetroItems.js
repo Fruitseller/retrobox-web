@@ -18,7 +18,8 @@ class ListRetroItems extends React.Component {
   constructor() {
     super();
     this.state = {
-      items: {}
+      items: {},
+      names: {}
     };
   }
   componentDidMount() {
@@ -27,15 +28,13 @@ class ListRetroItems extends React.Component {
       state: 'items',
       then: () => {
         Object.keys(this.state.items).map(authorId => {
-          return Object.keys(this.state.items[authorId]).forEach(
-            messageTimestamp => {
-              app
-                .database()
-                .ref('/users/' + authorId)
-                .once('value')
-                .then(this.enrichItemsWithDisplayName(authorId));
-            }
-          );
+          return Object.keys(this.state.items[authorId]).forEach(() => {
+            app
+              .database()
+              .ref('/users/' + authorId)
+              .once('value')
+              .then(this.enrichItemsWithDisplayName(authorId));
+          });
         });
       }
     });
@@ -44,13 +43,9 @@ class ListRetroItems extends React.Component {
   enrichItemsWithDisplayName = authorId => {
     return snapshot => {
       this.setState({
-        items: {
-          ...this.state.items,
-          [authorId]: {
-            ...this.state.items[authorId],
-            displayName:
-              (snapshot.val() && snapshot.val().displayName) || 'Anonymous'
-          }
+        names: {
+          [authorId]:
+            (snapshot.val() && snapshot.val().displayName) || 'Anonymous'
         }
       });
     };
@@ -72,7 +67,7 @@ class ListRetroItems extends React.Component {
               .map(messageTimestamp => {
                 const key = messageTimestamp;
                 const message = this.state.items[authorId][messageTimestamp];
-                const displayName = this.state.items[authorId].displayName;
+                const displayName = this.state.names[authorId];
                 return (
                   <RetroItem
                     key={key}
