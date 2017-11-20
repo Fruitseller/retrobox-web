@@ -7,17 +7,17 @@
     "firebase": "4.6.2",
     "husky": "^0.14.3",
     "lint-staged": "5.0.0",
-    "material-ui": "^1.0.0-beta.20",
+    "material-ui": "^1.0.0-beta.21",
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
-    "re-base": "3.1.0",
-    "react": "16.1.0",
-    "react-dom": "16.1.0",
+    "re-base": "3.2.0",
+    "react": "16.1.1",
+    "react-dom": "16.1.1",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "react-spinkit": "^3.0.0",
-    "typeface-roboto": "0.0.43"
+    "typeface-roboto": "0.0.45"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -33,9 +33,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "3.1.1",
-    "enzyme-adapter-react-16": "1.0.4",
+    "enzyme": "3.2.0",
+    "enzyme-adapter-react-16": "1.1.0",
     "prettier": "1.8.2",
-    "react-test-renderer": "16.1.0"
+    "react-test-renderer": "16.1.1"
   }
 }
