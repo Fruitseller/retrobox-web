@@ -2,7 +2,7 @@
   "name": "retrobox",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://retrobox-web.herokuapp.com",
+  "homepage": "https://retrobox.online",
   "dependencies": {
     "firebase": "4.6.2",
     "husky": "^0.14.3",
