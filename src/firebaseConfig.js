@@ -1,10 +1,10 @@
 const config = {
-  apiKey: 'AIzaSyBv2fwnIwQT39paxU_AsUShYE4KMqPyySw',
-  authDomain: 'retrobox-6c2ba.firebaseapp.com',
-  databaseURL: 'https://retrobox-6c2ba.firebaseio.com',
-  projectId: 'retrobox-6c2ba',
-  storageBucket: '',
-  messagingSenderId: '916971129194'
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
 
 export default config;
