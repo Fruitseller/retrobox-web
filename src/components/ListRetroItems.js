@@ -62,9 +62,8 @@ class ListRetroItems extends React.Component {
         <Typography type="headline">Sprint thoughts</Typography>
         <List>
           {Object.keys(this.state.items).map(authorId => {
-            return Object.keys(this.state.items[authorId])
-              .filter(message => message !== 'displayName')
-              .map(messageTimestamp => {
+            return Object.keys(this.state.items[authorId]).map(
+              messageTimestamp => {
                 const key = messageTimestamp;
                 const message = this.state.items[authorId][messageTimestamp];
                 const displayName = this.state.names[authorId];
@@ -79,7 +78,8 @@ class ListRetroItems extends React.Component {
                     removeItem={this.removeItem}
                   />
                 );
-              });
+              }
+            );
           })}
         </List>
       </Paper>
