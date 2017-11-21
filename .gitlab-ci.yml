@@ -1,4 +1,3 @@
-
 test site:
   image: node:8.5
   stage: test
@@ -16,6 +15,6 @@ deploy site:
   - dpl --provider=heroku --app=retrobox-web --api-key=$HEROKU_API_KEY
   environment:
     name: heroku
-    url: https://retrobox-web.herokuapp.com
+    url: https://retrobox.online
   only:
   - master
