@@ -11,7 +11,7 @@ exports[`renders correctly 1`] = `
     Please Enter a Teamname
   </h2>
   <div
-    className="MuiInput-root-27 MuiInput-inkbar-29 MuiInput-underline-35 TeamPicker-input-1"
+    className="MuiInput-root-27 MuiInput-inkbar-29 MuiInput-underline-33 TeamPicker-input-1"
     onBlur={[Function]}
     onFocus={[Function]}
     required={true}
@@ -20,7 +20,7 @@ exports[`renders correctly 1`] = `
       aria-label="Description"
       autoComplete={undefined}
       autoFocus={undefined}
-      className="MuiInput-input-31 MuiInput-inputSingleline-38"
+      className="MuiInput-input-36 MuiInput-inputSingleline-39"
       defaultValue={undefined}
       disabled={undefined}
       id={undefined}
