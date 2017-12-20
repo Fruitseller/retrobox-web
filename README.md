@@ -1,4 +1,6 @@
 # retrobox-web
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Fruitseller/retrobox-web.svg)](https://greenkeeper.io/)
 React app that lets you write notes for your retrospective and stores them in a
 firebase instance.
 
