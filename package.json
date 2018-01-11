@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://retrobox.online",
   "dependencies": {
-    "firebase": "4.8.1",
+    "firebase": "4.8.2",
     "husky": "^0.14.3",
     "lint-staged": "6.0.0",
     "material-ui": "1.0.0-beta.22",
