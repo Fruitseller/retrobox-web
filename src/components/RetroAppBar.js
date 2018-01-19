@@ -19,17 +19,13 @@ const styles = theme => ({
 });
 
 const RetroAppBar = props => {
-  const buildTitleLink = teamLink => {
-    if (teamLink) {
-      return (
-        <Button color="contrast" component={Link} to={`/team/${teamLink}`}>
-          Retrobox
-        </Button>
-      );
-    }
-
+  const buildTitleLink = team => {
     return (
-      <Button color="contrast" component={Link} to={'/'}>
+      <Button
+        color="contrast"
+        component={Link}
+        to={team ? `/team/${team}` : '/'}
+      >
         Retrobox
       </Button>
     );
@@ -45,6 +41,7 @@ const RetroAppBar = props => {
     }
     return null;
   };
+
   return (
     <div className={props.classes.root}>
       <AppBar>
