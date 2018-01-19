@@ -6,6 +6,7 @@ import AddRetroItem from './components/AddRetroItem';
 import ListRetroItems from './components/ListRetroItems';
 import TeamPicker from './components/TeamPicker';
 import NotFound from './components/NotFound';
+import RetroAppBar from './components/RetroAppBar';
 import firebase from 'firebase';
 import './App.css';
 import { app } from './base';
@@ -96,6 +97,12 @@ class App extends Component {
     this.setState({ userData: { uid: null }, isLoading: false });
   };
 
+  renderAppBar = () => {
+    return (
+      <RetroAppBar handleOnClick={this.login} buttonText="Login with google" />
+    );
+  };
+
   renderRoutes = () => {
     let handleAuthentication = this.login;
     let authenticationText = 'Login with google';
@@ -103,6 +110,16 @@ class App extends Component {
       handleAuthentication = this.logout;
       authenticationText = 'Logout';
     }
+
+    const MyTeamPicker = props => {
+      return (
+        <TeamPicker
+          handleAuthentication={handleAuthentication}
+          authenticationText={authenticationText}
+          {...props}
+        />
+      );
+    };
 
     const MyAddRetroItem = props => {
       return (
@@ -128,7 +145,7 @@ class App extends Component {
 
     return (
       <Switch>
-        <Route exact path="/" component={TeamPicker} />
+        <Route exact path="/" component={MyTeamPicker} />
         <Route exact path="/team/:teamId" render={MyAddRetroItem} />
         <Route exact path="/team/:teamId/list" component={MyListRetroItems} />
         <Route component={NotFound} />
@@ -143,7 +160,9 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
-            {this.state.userData.uid ? this.renderRoutes() : null}
+            {this.state.userData.uid
+              ? this.renderRoutes()
+              : this.renderAppBar()}
           </div>
         </Router>
       );

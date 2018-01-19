@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
@@ -17,6 +19,32 @@ const styles = theme => ({
 });
 
 const RetroAppBar = props => {
+  const buildTitleLink = teamLink => {
+    if (teamLink) {
+      return (
+        <Button color="contrast" component={Link} to={`/team/${teamLink}`}>
+          Retrobox
+        </Button>
+      );
+    }
+
+    return (
+      <Button color="contrast" component={Link} to={'/'}>
+        Retrobox
+      </Button>
+    );
+  };
+
+  const buildTeamLink = teamLink => {
+    if (teamLink) {
+      return (
+        <Button color="contrast" component={Link} to={`/team/${teamLink}/list`}>
+          {teamLink}
+        </Button>
+      );
+    }
+    return null;
+  };
   return (
     <div className={props.classes.root}>
       <AppBar>
@@ -24,10 +52,12 @@ const RetroAppBar = props => {
           <Typography
             type="title"
             color="inherit"
+            align="center"
             className={props.classes.flex}
           >
-            Retrobox
+            {buildTitleLink(props.teamLink)}
           </Typography>
+          {buildTeamLink(props.teamLink)}
           <Button color="contrast" onClick={props.handleOnClick}>
             {props.buttonText}
           </Button>
@@ -40,7 +70,12 @@ const RetroAppBar = props => {
 RetroAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
   buttonText: PropTypes.string.isRequired,
-  handleOnClick: PropTypes.func.isRequired
+  handleOnClick: PropTypes.func.isRequired,
+  teamLink: PropTypes.string
 };
 
-export default withStyles(styles)(RetroAppBar);
+RetroAppBar.defaultProps = {
+  teamLink: null
+};
+
+export default withStyles(styles)(withRouter(RetroAppBar));

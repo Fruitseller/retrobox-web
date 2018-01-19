@@ -1,66 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<form
-  className="team-selector"
-  onSubmit={[Function]}
->
-  <h2
-    className="MuiTypography-root-3 MuiTypography-headline-8"
-  >
-    Please Enter a Teamname
-  </h2>
+<div>
   <div
-    className="MuiInput-root-27 MuiInput-inkbar-29 MuiInput-underline-33 TeamPicker-input-1"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    required={true}
+    className="withRouter-RetroAppBar--root-3"
   >
-    <input
-      aria-label="Description"
-      autoComplete={undefined}
-      autoFocus={undefined}
-      className="MuiInput-input-36 MuiInput-inputSingleline-39"
-      defaultValue={undefined}
-      disabled={undefined}
-      id={undefined}
-      name={undefined}
-      onChange={[Function]}
-      onKeyDown={undefined}
-      onKeyUp={undefined}
-      placeholder="Team Name"
-      readOnly={undefined}
-      required={undefined}
-      rows={undefined}
-      type="text"
-      value={undefined}
-    />
-  </div>
-  <button
-    className="MuiButtonBase-root-56 MuiButton-root-42 MuiButton-raised-49 TeamPicker-button-2"
-    disabled={false}
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="button"
-    tabIndex={0}
-    type="submit"
-  >
-    <span
-      className="MuiButton-label-44"
+    <header
+      className="MuiPaper-root-12 MuiPaper-shadow4-18 MuiAppBar-root-5 MuiAppBar-positionFixed-6 MuiAppBar-colorPrimary-10 mui-fixed"
     >
-      Open team Retrobox
-    </span>
-    <span
-      className="MuiTouchRipple-root-58"
-    />
-  </button>
-</form>
+      <div
+        className="MuiToolbar-root-39 MuiToolbar-gutters-40"
+      >
+        <h2
+          className="MuiTypography-root-41 MuiTypography-title-47 MuiTypography-colorInherit-60 MuiTypography-alignCenter-54 withRouter-RetroAppBar--flex-4"
+        >
+          <a
+            className="MuiButtonBase-root-79 MuiButton-root-65 MuiButton-flatContrast-70"
+            disabled={false}
+            href="/"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <span
+              className="MuiButton-label-67"
+            >
+              Retrobox
+            </span>
+            <span
+              className="MuiTouchRipple-root-81"
+            />
+          </a>
+        </h2>
+        <button
+          className="MuiButtonBase-root-79 MuiButton-root-65 MuiButton-flatContrast-70"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label-67"
+          >
+            text
+          </span>
+          <span
+            className="MuiTouchRipple-root-81"
+          />
+        </button>
+      </div>
+    </header>
+  </div>
+  <form
+    className="team-selector"
+    onSubmit={[Function]}
+  >
+    <h2
+      className="MuiTypography-root-41 MuiTypography-headline-46"
+    >
+      Please Enter a Teamname
+    </h2>
+    <div
+      className="MuiInput-root-88 MuiInput-inkbar-90 MuiInput-underline-94 TeamPicker-input-1"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      required={true}
+    >
+      <input
+        aria-label="Description"
+        autoComplete={undefined}
+        autoFocus={undefined}
+        className="MuiInput-input-97 MuiInput-inputSingleline-100"
+        defaultValue={undefined}
+        disabled={undefined}
+        id={undefined}
+        name={undefined}
+        onChange={[Function]}
+        onKeyDown={undefined}
+        onKeyUp={undefined}
+        placeholder="Team Name"
+        readOnly={undefined}
+        required={undefined}
+        rows={undefined}
+        type="text"
+        value={undefined}
+      />
+    </div>
+    <button
+      className="MuiButtonBase-root-79 MuiButton-root-65 MuiButton-raised-72 TeamPicker-button-2"
+      disabled={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="button"
+      tabIndex={0}
+      type="submit"
+    >
+      <span
+        className="MuiButton-label-67"
+      >
+        Open team Retrobox
+      </span>
+      <span
+        className="MuiTouchRipple-root-81"
+      />
+    </button>
+  </form>
+</div>
 `;

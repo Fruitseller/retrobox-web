@@ -29,6 +29,7 @@ class AddRetroItem extends React.Component {
         <RetroAppBar
           handleOnClick={this.props.handleAuthentication}
           buttonText={this.props.authenticationText}
+          teamLink={this.props.match.params.teamId}
         />
         <form
           className="form"

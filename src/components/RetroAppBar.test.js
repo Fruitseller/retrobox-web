@@ -1,4 +1,5 @@
 import React from 'react';
+import { MemoryRouter as Router } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -9,7 +10,9 @@ configure({ adapter: new Adapter() });
 
 it('renders correctly', () => {
   const retroAppBar = renderer.create(
-    <RetroAppBar buttonText="This is a buttonText" handleOnClick={() => {}} />
+    <Router>
+      <RetroAppBar buttonText="This is a buttonText" handleOnClick={() => {}} />
+    </Router>
   );
   expect(retroAppBar).toMatchSnapshot();
 });

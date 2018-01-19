@@ -63,6 +63,7 @@ class ListRetroItems extends React.Component {
         <RetroAppBar
           handleOnClick={this.props.handleAuthentication}
           buttonText={this.props.authenticationText}
+          teamLink={this.props.match.params.teamId}
         />
         <Paper className={this.props.classes.root} elevation={4}>
           <Typography type="headline">Sprint thoughts</Typography>

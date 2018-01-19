@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <div>
   <div
-    className="RetroAppBar-root-2"
+    className="withRouter-RetroAppBar--root-2"
   >
     <header
       className="MuiPaper-root-11 MuiPaper-shadow4-17 MuiAppBar-root-4 MuiAppBar-positionFixed-5 MuiAppBar-colorPrimary-9 mui-fixed"
@@ -12,9 +12,35 @@ exports[`renders correctly 1`] = `
         className="MuiToolbar-root-38 MuiToolbar-gutters-39"
       >
         <h2
-          className="MuiTypography-root-40 MuiTypography-title-46 MuiTypography-colorInherit-59 RetroAppBar-flex-3"
+          className="MuiTypography-root-40 MuiTypography-title-46 MuiTypography-colorInherit-59 MuiTypography-alignCenter-53 withRouter-RetroAppBar--flex-3"
         >
-          Retrobox
+          <a
+            className="MuiButtonBase-root-78 MuiButton-root-64 MuiButton-flatContrast-69"
+            disabled={false}
+            href="/"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex={0}
+          >
+            <span
+              className="MuiButton-label-66"
+            >
+              Retrobox
+            </span>
+            <span
+              className="MuiTouchRipple-root-80"
+            />
+          </a>
         </h2>
         <button
           className="MuiButtonBase-root-78 MuiButton-root-64 MuiButton-flatContrast-69"
