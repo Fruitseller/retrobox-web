@@ -5,6 +5,7 @@ import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import { app, base } from './../base';
 import RetroItem from './RetroItem';
+import RetroAppBar from './RetroAppBar';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -58,31 +59,37 @@ class ListRetroItems extends React.Component {
 
   render() {
     return (
-      <Paper className={this.props.classes.root} elevation={4}>
-        <Typography type="headline">Sprint thoughts</Typography>
-        <List>
-          {Object.keys(this.state.items).map(authorId => {
-            return Object.keys(this.state.items[authorId]).map(
-              messageTimestamp => {
-                const key = messageTimestamp;
-                const message = this.state.items[authorId][messageTimestamp];
-                const displayName = this.state.names[authorId];
-                return (
-                  <RetroItem
-                    key={key}
-                    teamId={this.props.match.params.teamId}
-                    authorId={authorId}
-                    authorName={displayName}
-                    timestamp={key}
-                    message={message}
-                    removeItem={this.removeItem}
-                  />
-                );
-              }
-            );
-          })}
-        </List>
-      </Paper>
+      <div>
+        <RetroAppBar
+          handleOnClick={this.props.handleAuthentication}
+          buttonText={this.props.authenticationText}
+        />
+        <Paper className={this.props.classes.root} elevation={4}>
+          <Typography type="headline">Sprint thoughts</Typography>
+          <List>
+            {Object.keys(this.state.items).map(authorId => {
+              return Object.keys(this.state.items[authorId]).map(
+                messageTimestamp => {
+                  const key = messageTimestamp;
+                  const message = this.state.items[authorId][messageTimestamp];
+                  const displayName = this.state.names[authorId];
+                  return (
+                    <RetroItem
+                      key={key}
+                      teamId={this.props.match.params.teamId}
+                      authorId={authorId}
+                      authorName={displayName}
+                      timestamp={key}
+                      message={message}
+                      removeItem={this.removeItem}
+                    />
+                  );
+                }
+              );
+            })}
+          </List>
+        </Paper>
+      </div>
     );
   }
 }

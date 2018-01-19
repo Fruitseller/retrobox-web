@@ -1,51 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<form
-  className="form"
-  onSubmit={[Function]}
->
+<div>
   <div
-    className="MuiFormControl-root-2 withRouter-AddRetroItem--formControl-1"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    required={false}
+    className="RetroAppBar-root-2"
   >
-    <label
-      className="MuiFormLabel-root-12 MuiInputLabel-root-6 MuiInputLabel-formControl-7 MuiInputLabel-animated-10"
-      data-shrink={false}
-      htmlFor="thoughts"
+    <header
+      className="MuiPaper-root-11 MuiPaper-shadow4-17 MuiAppBar-root-4 MuiAppBar-positionFixed-5 MuiAppBar-colorPrimary-9 mui-fixed"
     >
-      Enter your thoughts
-    </label>
+      <div
+        className="MuiToolbar-root-38 MuiToolbar-gutters-39"
+      >
+        <h2
+          className="MuiTypography-root-40 MuiTypography-title-46 MuiTypography-colorInherit-59 RetroAppBar-flex-3"
+        >
+          Retrobox
+        </h2>
+        <button
+          className="MuiButtonBase-root-78 MuiButton-root-64 MuiButton-flatContrast-69"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label-66"
+          >
+            text
+          </span>
+          <span
+            className="MuiTouchRipple-root-80"
+          />
+        </button>
+      </div>
+    </header>
+  </div>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
     <div
-      className="MuiInput-root-16 MuiInput-formControl-17 MuiInput-inkbar-18 MuiInput-underline-22"
+      className="MuiFormControl-root-87 withRouter-AddRetroItem--formControl-1"
       onBlur={[Function]}
       onFocus={[Function]}
+      required={false}
     >
-      <input
-        autoComplete={undefined}
-        autoFocus={undefined}
-        className="MuiInput-input-25 MuiInput-inputSingleline-28"
-        defaultValue={undefined}
-        disabled={false}
-        id="thoughts"
-        name={undefined}
-        onChange={[Function]}
-        onKeyDown={undefined}
-        onKeyUp={undefined}
-        placeholder={undefined}
-        readOnly={undefined}
-        required={undefined}
-        rows={undefined}
-        type="text"
-        value={undefined}
-      />
+      <label
+        className="MuiFormLabel-root-97 MuiInputLabel-root-91 MuiInputLabel-formControl-92 MuiInputLabel-animated-95"
+        data-shrink={false}
+        htmlFor="thoughts"
+      >
+        Enter your thoughts
+      </label>
+      <div
+        className="MuiInput-root-101 MuiInput-formControl-102 MuiInput-inkbar-103 MuiInput-underline-107"
+        onBlur={[Function]}
+        onFocus={[Function]}
+      >
+        <input
+          autoComplete={undefined}
+          autoFocus={undefined}
+          className="MuiInput-input-110 MuiInput-inputSingleline-113"
+          defaultValue={undefined}
+          disabled={false}
+          id="thoughts"
+          name={undefined}
+          onChange={[Function]}
+          onKeyDown={undefined}
+          onKeyUp={undefined}
+          placeholder={undefined}
+          readOnly={undefined}
+          required={undefined}
+          rows={undefined}
+          type="text"
+          value={undefined}
+        />
+      </div>
     </div>
-  </div>
-  <input
-    hidden={true}
-    type="submit"
-  />
-</form>
+    <input
+      hidden={true}
+      type="submit"
+    />
+  </form>
+</div>
 `;
