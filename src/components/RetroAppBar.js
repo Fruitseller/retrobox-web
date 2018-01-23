@@ -35,7 +35,7 @@ const RetroAppBar = props => {
     if (teamLink) {
       return (
         <Button color="contrast" component={Link} to={`/team/${teamLink}/list`}>
-          {teamLink}
+          {`List ${teamLink} items`}
         </Button>
       );
     }
