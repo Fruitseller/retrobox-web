@@ -72,3 +72,103 @@ exports[`renders correctly 1`] = `
   </header>
 </div>
 `;
+
+exports[`renders correctly if a team link was provided 1`] = `
+<div
+  className="withRouter-RetroAppBar--root-1"
+>
+  <header
+    className="MuiPaper-root-10 MuiPaper-shadow4-16 MuiAppBar-root-3 MuiAppBar-positionFixed-4 MuiAppBar-colorPrimary-8 mui-fixed"
+  >
+    <div
+      className="MuiToolbar-root-37 MuiToolbar-gutters-38"
+    >
+      <h2
+        className="MuiTypography-root-39 MuiTypography-title-45 MuiTypography-colorInherit-58 MuiTypography-alignCenter-52 withRouter-RetroAppBar--flex-2"
+      >
+        <a
+          className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
+          disabled={false}
+          href="/team/Team"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          role="button"
+          tabIndex={0}
+        >
+          <span
+            className="MuiButton-label-65"
+          >
+            Retrobox
+          </span>
+          <span
+            className="MuiTouchRipple-root-79"
+          />
+        </a>
+      </h2>
+      <a
+        className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
+        disabled={false}
+        href="/team/Team/list"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <span
+          className="MuiButton-label-65"
+        >
+          List Team items
+        </span>
+        <span
+          className="MuiTouchRipple-root-79"
+        />
+      </a>
+      <button
+        className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label-65"
+        >
+          This is a buttonText
+        </span>
+        <span
+          className="MuiTouchRipple-root-79"
+        />
+      </button>
+    </div>
+  </header>
+</div>
+`;
