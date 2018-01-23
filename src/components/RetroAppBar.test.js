@@ -16,3 +16,16 @@ it('renders correctly', () => {
   );
   expect(retroAppBar).toMatchSnapshot();
 });
+
+it('renders correctly if a team link was provided', () => {
+  const retroAppBar = renderer.create(
+    <Router>
+      <RetroAppBar
+        buttonText="This is a buttonText"
+        handleOnClick={() => {}}
+        teamLink={'Team'}
+      />
+    </Router>
+  );
+  expect(retroAppBar).toMatchSnapshot();
+});
