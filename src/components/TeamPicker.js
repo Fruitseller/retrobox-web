@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
+import RetroAppBar from './RetroAppBar';
 
 const styles = theme => ({
   input: {
@@ -22,28 +23,34 @@ class TeamPicker extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, handleAuthentication, authenticationText } = this.props;
     return (
-      <form className="team-selector" onSubmit={this.goToTeam}>
-        <Typography type="headline" component="h2">
-          Please Enter a Teamname
-        </Typography>
-
-        <Input
-          placeholder="Team Name"
-          className={classes.input}
-          required
-          inputProps={{
-            'aria-label': 'Description'
-          }}
-          inputRef={input => {
-            this.teamInput = input;
-          }}
+      <div>
+        <RetroAppBar
+          handleOnClick={handleAuthentication}
+          buttonText={authenticationText}
         />
-        <Button raised type="submit" className={classes.button}>
-          Open team Retrobox
-        </Button>
-      </form>
+        <form className="team-selector" onSubmit={this.goToTeam}>
+          <Typography type="headline" component="h2">
+            Please Enter a Teamname
+          </Typography>
+
+          <Input
+            placeholder="Team Name"
+            className={classes.input}
+            required
+            inputProps={{
+              'aria-label': 'Description'
+            }}
+            inputRef={input => {
+              this.teamInput = input;
+            }}
+          />
+          <Button raised type="submit" className={classes.button}>
+            Open team Retrobox
+          </Button>
+        </form>
+      </div>
     );
   }
 }
