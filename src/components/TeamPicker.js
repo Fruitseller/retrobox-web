@@ -18,7 +18,7 @@ const styles = theme => ({
 class TeamPicker extends Component {
   goToTeam = event => {
     event.preventDefault();
-    const teamId = this.teamInput.value;
+    const teamId = this.teamInput.value.toLowerCase();
     this.props.history.push(`team/${teamId}`);
   };
 

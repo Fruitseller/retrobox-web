@@ -16,7 +16,7 @@ class AddRetroItem extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.addItem(
-      this.props.match.params.teamId,
+      this.props.match.params.teamId.toLowerCase(),
       this.props.uid,
       this.input.value
     );
