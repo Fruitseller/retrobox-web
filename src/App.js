@@ -146,7 +146,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" component={MyTeamPicker} />
-        <Route exact path="/team/:teamId" render={MyAddRetroItem} />
+        <Route exact path="/team/:teamId" component={MyAddRetroItem} />
         <Route exact path="/team/:teamId/list" component={MyListRetroItems} />
         <Route component={NotFound} />
       </Switch>
