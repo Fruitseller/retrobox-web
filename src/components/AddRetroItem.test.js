@@ -8,14 +8,26 @@ import AddRetroItem from './AddRetroItem';
 configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  shallow(<AddRetroItem uid="unique" addItem={() => {}} />);
+  shallow(
+    <AddRetroItem
+      uid="unique"
+      addItem={() => {}}
+      handleAuthentication={() => {}}
+      authenticationText="text"
+    />
+  );
 });
 
 it('renders correctly', () => {
   const tree = renderer
     .create(
       <Router>
-        <AddRetroItem uid="unique" addItem={() => {}} />
+        <AddRetroItem
+          uid="unique"
+          addItem={() => {}}
+          handleAuthentication={() => {}}
+          authenticationText="text"
+        />
       </Router>
     )
     .toJSON();

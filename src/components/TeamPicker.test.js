@@ -9,14 +9,16 @@ import TeamPicker from './TeamPicker';
 configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  shallow(<TeamPicker />);
+  shallow(
+    <TeamPicker handleAuthentication={() => {}} authenticationText="text" />
+  );
 });
 
 it('renders correctly', () => {
   const tree = renderer
     .create(
       <Router>
-        <TeamPicker />
+        <TeamPicker handleAuthentication={() => {}} authenticationText="text" />
       </Router>
     )
     .toJSON();
