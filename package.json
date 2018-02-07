@@ -15,9 +15,9 @@
     "react-dom": "16.2.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
+    "react-scripts": "1.1.0",
     "react-spinkit": "^3.0.0",
-    "typeface-roboto": "0.0.45"
+    "typeface-roboto": "0.0.54"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
@@ -33,9 +33,9 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "enzyme": "3.2.0",
+    "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
-    "prettier": "1.9.2",
+    "prettier": "1.10.2",
     "react-test-renderer": "16.2.0"
   }
 }

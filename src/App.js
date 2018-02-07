@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import Spinner from 'react-spinkit';
 import AddRetroItem from './components/AddRetroItem';
 import ListRetroItems from './components/ListRetroItems';
 import TeamPicker from './components/TeamPicker';
 import NotFound from './components/NotFound';
+import RetroAppBar from './components/RetroAppBar';
 import firebase from 'firebase';
 import './App.css';
 import { app } from './base';
@@ -101,47 +98,34 @@ class App extends Component {
   };
 
   renderAppBar = () => {
-    let handleOnClick = this.login;
-    let buttonText = 'Login with google';
+    return (
+      <RetroAppBar handleOnClick={this.login} buttonText="Login with google" />
+    );
+  };
+
+  renderRoutes = () => {
+    let handleAuthentication = this.login;
+    let authenticationText = 'Login with google';
     if (this.state.userData.uid) {
-      handleOnClick = this.logout;
-      buttonText = 'Logout';
+      handleAuthentication = this.logout;
+      authenticationText = 'Logout';
     }
-    return (
-      <div className={this.props.classes.root}>
-        <AppBar>
-          <Toolbar>
-            <Typography
-              type="title"
-              color="inherit"
-              className={this.props.classes.flex}
-            >
-              Retrobox
-            </Typography>
-            <Button color="contrast" onClick={handleOnClick}>
-              {buttonText}
-            </Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
-  };
 
-  renderRoutes = MyAddRetroItem => {
-    return (
-      <Switch>
-        <Route exact path="/" component={TeamPicker} />
-        <Route exact path="/team/:teamId" render={MyAddRetroItem} />
-        <Route exact path="/team/:teamId/list" component={ListRetroItems} />
-        <Route component={NotFound} />
-      </Switch>
-    );
-  };
+    const MyTeamPicker = props => {
+      return (
+        <TeamPicker
+          handleAuthentication={handleAuthentication}
+          authenticationText={authenticationText}
+          {...props}
+        />
+      );
+    };
 
-  render() {
     const MyAddRetroItem = props => {
       return (
         <AddRetroItem
+          handleAuthentication={handleAuthentication}
+          authenticationText={authenticationText}
           uid={this.state.userData.uid}
           addItem={this.addItem}
           {...props}
@@ -149,14 +133,36 @@ class App extends Component {
       );
     };
 
+    const MyListRetroItems = props => {
+      return (
+        <ListRetroItems
+          handleAuthentication={handleAuthentication}
+          authenticationText={authenticationText}
+          {...props}
+        />
+      );
+    };
+
+    return (
+      <Switch>
+        <Route exact path="/" component={MyTeamPicker} />
+        <Route exact path="/team/:teamId" component={MyAddRetroItem} />
+        <Route exact path="/team/:teamId/list" component={MyListRetroItems} />
+        <Route component={NotFound} />
+      </Switch>
+    );
+  };
+
+  render() {
     if (this.state.isLoading) {
       return <Spinner name="pacman" color="goldenrod" />;
     } else {
       return (
         <Router>
           <div className="App">
-            {this.renderAppBar()}
-            {this.state.userData.uid ? this.renderRoutes(MyAddRetroItem) : null}
+            {this.state.userData.uid
+              ? this.renderRoutes()
+              : this.renderAppBar()}
           </div>
         </Router>
       );

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
+import RetroAppBar from './RetroAppBar';
 
 const styles = theme => ({
   formControl: {
@@ -15,7 +16,7 @@ class AddRetroItem extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.addItem(
-      this.props.match.params.teamId,
+      this.props.match.params.teamId.toLowerCase(),
       this.props.uid,
       this.input.value
     );
@@ -24,23 +25,30 @@ class AddRetroItem extends React.Component {
 
   render() {
     return (
-      <form
-        className="form"
-        onSubmit={this.handleSubmit}
-        ref={form => (this.form = form)}
-      >
-        <FormControl className={this.props.classes.formControl}>
-          <InputLabel htmlFor="thoughts">Enter your thoughts</InputLabel>
-          <Input
-            id="thoughts"
-            inputRef={input => {
-              this.input = input;
-            }}
-          />
-        </FormControl>
+      <div>
+        <RetroAppBar
+          handleOnClick={this.props.handleAuthentication}
+          buttonText={this.props.authenticationText}
+          teamLink={this.props.match.params.teamId}
+        />
+        <form
+          className="form"
+          onSubmit={this.handleSubmit}
+          ref={form => (this.form = form)}
+        >
+          <FormControl className={this.props.classes.formControl}>
+            <InputLabel htmlFor="thoughts">Enter your thoughts</InputLabel>
+            <Input
+              id="thoughts"
+              inputRef={input => {
+                this.input = input;
+              }}
+            />
+          </FormControl>
 
-        <input type="submit" hidden />
-      </form>
+          <input type="submit" hidden />
+        </form>
+      </div>
     );
   }
 }
