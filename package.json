@@ -11,11 +11,11 @@
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
     "re-base": "3.2.2",
-    "react": "16.2.0",
-    "react-dom": "16.2.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.2",
+    "react-scripts": "^2.0.4",
     "react-spinkit": "^3.0.0",
     "typeface-roboto": "0.0.54"
   },
@@ -36,6 +36,12 @@
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
     "prettier": "^1.11.1",
-    "react-test-renderer": "16.2.0"
-  }
+    "react-test-renderer": "^16.5.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
