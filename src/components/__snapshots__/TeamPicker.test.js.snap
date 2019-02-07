@@ -6,20 +6,21 @@ exports[`renders correctly 1`] = `
     className="withRouter-RetroAppBar--root-3"
   >
     <header
-      className="MuiPaper-root-12 MuiPaper-shadow4-18 MuiAppBar-root-5 MuiAppBar-positionFixed-6 MuiAppBar-colorPrimary-10 mui-fixed"
+      className="MuiPaper-root-14 MuiPaper-elevation4-20 MuiAppBar-root-5 MuiAppBar-positionFixed-6 MuiAppBar-colorPrimary-12 mui-fixed"
     >
       <div
-        className="MuiToolbar-root-39 MuiToolbar-gutters-40"
+        className="MuiToolbar-root-41 MuiToolbar-regular-43 MuiToolbar-gutters-42"
       >
-        <h2
-          className="MuiTypography-root-41 MuiTypography-title-47 MuiTypography-colorInherit-60 MuiTypography-alignCenter-54 withRouter-RetroAppBar--flex-4"
+        <p
+          className="MuiTypography-root-45 MuiTypography-body1-54 MuiTypography-colorInherit-74 MuiTypography-alignCenter-68 withRouter-RetroAppBar--flex-4"
+          type="title"
         >
           <a
-            className="MuiButtonBase-root-79 MuiButton-root-65 MuiButton-flatContrast-70"
-            disabled={false}
+            className="MuiButtonBase-root-107 MuiButton-root-81 MuiButton-text-83 MuiButton-flat-86"
             href="/"
             onBlur={[Function]}
             onClick={[Function]}
+            onContextMenu={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onKeyUp={[Function]}
@@ -30,23 +31,24 @@ exports[`renders correctly 1`] = `
             onTouchMove={[Function]}
             onTouchStart={[Function]}
             role="button"
-            tabIndex={0}
+            tabIndex="0"
           >
             <span
-              className="MuiButton-label-67"
+              className="MuiButton-label-82"
             >
               Retrobox
             </span>
             <span
-              className="MuiTouchRipple-root-81"
+              className="MuiTouchRipple-root-140"
             />
           </a>
-        </h2>
+        </p>
         <button
-          className="MuiButtonBase-root-79 MuiButton-root-65 MuiButton-flatContrast-70"
+          className="MuiButtonBase-root-107 MuiButton-root-81 MuiButton-text-83 MuiButton-flat-86"
           disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -56,17 +58,16 @@ exports[`renders correctly 1`] = `
           onTouchEnd={[Function]}
           onTouchMove={[Function]}
           onTouchStart={[Function]}
-          role="button"
-          tabIndex={0}
+          tabIndex="0"
           type="button"
         >
           <span
-            className="MuiButton-label-67"
+            className="MuiButton-label-82"
           >
             text
           </span>
           <span
-            className="MuiTouchRipple-root-81"
+            className="MuiTouchRipple-root-140"
           />
         </button>
       </div>
@@ -77,28 +78,32 @@ exports[`renders correctly 1`] = `
     onSubmit={[Function]}
   >
     <h2
-      className="MuiTypography-root-41 MuiTypography-headline-46"
+      className="MuiTypography-root-45 MuiTypography-body1-54"
+      type="headline"
     >
       Please Enter a Teamname
     </h2>
     <div
-      className="MuiInput-root-88 MuiInput-inkbar-90 MuiInput-underline-94 TeamPicker-input-1"
-      onBlur={[Function]}
-      onFocus={[Function]}
+      className="MuiInputBase-root-123 MuiInput-root-110 MuiInput-underline-114 TeamPicker-input-1"
+      onClick={[Function]}
       required={true}
     >
       <input
         aria-label="Description"
-        className="MuiInput-input-97 MuiInput-inputSingleline-100"
+        className="MuiInputBase-input-133 MuiInput-input-118"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         placeholder="Team Name"
+        required={true}
         type="text"
       />
     </div>
     <button
-      className="MuiButtonBase-root-79 MuiButton-root-65 MuiButton-raised-72 TeamPicker-button-2"
+      className="MuiButtonBase-root-107 MuiButton-root-81 MuiButton-text-83 MuiButton-flat-86 TeamPicker-button-2"
       disabled={false}
       onBlur={[Function]}
+      onContextMenu={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
@@ -108,17 +113,17 @@ exports[`renders correctly 1`] = `
       onTouchEnd={[Function]}
       onTouchMove={[Function]}
       onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      raised="true"
+      tabIndex="0"
       type="submit"
     >
       <span
-        className="MuiButton-label-67"
+        className="MuiButton-label-82"
       >
         Open team Retrobox
       </span>
       <span
-        className="MuiTouchRipple-root-81"
+        className="MuiTouchRipple-root-140"
       />
     </button>
   </form>

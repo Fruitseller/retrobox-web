@@ -3,39 +3,40 @@
 exports[`renders correctly 1`] = `
 <div>
   <hr
-    className="MuiDivider-root-1 MuiDivider-default-2"
+    className="MuiDivider-root-1"
   />
-  <div
+  <li
     className="MuiListItem-container-7"
   >
-    <li
-      className="MuiListItem-root-6 MuiListItem-gutters-13 MuiListItem-secondaryAction-15 MuiListItem-default-9"
+    <div
+      className="MuiListItem-root-6 MuiListItem-default-9 MuiListItem-gutters-14 MuiListItem-secondaryAction-16"
       disabled={false}
     >
       <div
-        className="MuiListItemText-root-16"
+        className="MuiListItemText-root-18"
       >
-        <h3
-          className="MuiTypography-root-21 MuiTypography-subheading-28 MuiListItemText-text-19"
+        <span
+          className="MuiTypography-root-24 MuiTypography-subheading-31 MuiListItemText-primary-21"
         >
           massage
-        </h3>
+        </span>
         <p
-          className="MuiTypography-root-21 MuiTypography-body1-30 MuiTypography-colorSecondary-42 MuiListItemText-text-19"
+          className="MuiTypography-root-24 MuiTypography-body1-33 MuiTypography-colorTextSecondary-57 MuiListItemText-secondary-22"
         >
           displayName
         </p>
       </div>
-    </li>
+    </div>
     <div
-      className="MuiListItemSecondaryAction-root-45"
+      className="MuiListItemSecondaryAction-root-60"
     >
       <button
         aria-label="Delete"
-        className="MuiButtonBase-root-55 MuiIconButton-root-46"
+        className="MuiButtonBase-root-67 MuiIconButton-root-61"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -45,69 +46,74 @@ exports[`renders correctly 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
+        tabIndex="0"
         type="button"
       >
         <span
-          className="MuiIconButton-label-52"
+          className="MuiIconButton-label-66"
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-57 MuiIconButton-icon-53"
+            className="MuiSvgIcon-root-70"
             focusable="false"
+            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
               d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
             />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-58"
+          className="MuiTouchRipple-root-79"
         />
       </button>
     </div>
-  </div>
+  </li>
 </div>
 `;
 
 exports[`renders correctly without authorName 1`] = `
 <div>
   <hr
-    className="MuiDivider-root-1 MuiDivider-default-2"
+    className="MuiDivider-root-1"
   />
-  <div
+  <li
     className="MuiListItem-container-7"
   >
-    <li
-      className="MuiListItem-root-6 MuiListItem-gutters-13 MuiListItem-secondaryAction-15 MuiListItem-default-9"
+    <div
+      className="MuiListItem-root-6 MuiListItem-default-9 MuiListItem-gutters-14 MuiListItem-secondaryAction-16"
       disabled={false}
     >
       <div
-        className="MuiListItemText-root-16"
+        className="MuiListItemText-root-18"
       >
-        <h3
-          className="MuiTypography-root-21 MuiTypography-subheading-28 MuiListItemText-text-19"
+        <span
+          className="MuiTypography-root-24 MuiTypography-subheading-31 MuiListItemText-primary-21"
         >
           massage
-        </h3>
+        </span>
         <p
-          className="MuiTypography-root-21 MuiTypography-body1-30 MuiTypography-colorSecondary-42 MuiListItemText-text-19"
+          className="MuiTypography-root-24 MuiTypography-body1-33 MuiTypography-colorTextSecondary-57 MuiListItemText-secondary-22"
         >
           Anonymous
         </p>
       </div>
-    </li>
+    </div>
     <div
-      className="MuiListItemSecondaryAction-root-45"
+      className="MuiListItemSecondaryAction-root-60"
     >
       <button
         aria-label="Delete"
-        className="MuiButtonBase-root-55 MuiIconButton-root-46"
+        className="MuiButtonBase-root-67 MuiIconButton-root-61"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -117,29 +123,33 @@ exports[`renders correctly without authorName 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
+        tabIndex="0"
         type="button"
       >
         <span
-          className="MuiIconButton-label-52"
+          className="MuiIconButton-label-66"
         >
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-57 MuiIconButton-icon-53"
+            className="MuiSvgIcon-root-70"
             focusable="false"
+            role="presentation"
             viewBox="0 0 24 24"
           >
             <path
               d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
             />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
           </svg>
         </span>
         <span
-          className="MuiTouchRipple-root-58"
+          className="MuiTouchRipple-root-79"
         />
       </button>
     </div>
-  </div>
+  </li>
 </div>
 `;

@@ -5,20 +5,21 @@ exports[`renders correctly 1`] = `
   className="withRouter-RetroAppBar--root-1"
 >
   <header
-    className="MuiPaper-root-10 MuiPaper-shadow4-16 MuiAppBar-root-3 MuiAppBar-positionFixed-4 MuiAppBar-colorPrimary-8 mui-fixed"
+    className="MuiPaper-root-12 MuiPaper-elevation4-18 MuiAppBar-root-3 MuiAppBar-positionFixed-4 MuiAppBar-colorPrimary-10 mui-fixed"
   >
     <div
-      className="MuiToolbar-root-37 MuiToolbar-gutters-38"
+      className="MuiToolbar-root-39 MuiToolbar-regular-41 MuiToolbar-gutters-40"
     >
-      <h2
-        className="MuiTypography-root-39 MuiTypography-title-45 MuiTypography-colorInherit-58 MuiTypography-alignCenter-52 withRouter-RetroAppBar--flex-2"
+      <p
+        className="MuiTypography-root-43 MuiTypography-body1-52 MuiTypography-colorInherit-72 MuiTypography-alignCenter-66 withRouter-RetroAppBar--flex-2"
+        type="title"
       >
         <a
-          className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
-          disabled={false}
+          className="MuiButtonBase-root-105 MuiButton-root-79 MuiButton-text-81 MuiButton-flat-84"
           href="/"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -29,23 +30,24 @@ exports[`renders correctly 1`] = `
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}
+          tabIndex="0"
         >
           <span
-            className="MuiButton-label-65"
+            className="MuiButton-label-80"
           >
             Retrobox
           </span>
           <span
-            className="MuiTouchRipple-root-79"
+            className="MuiTouchRipple-root-108"
           />
         </a>
-      </h2>
+      </p>
       <button
-        className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
+        className="MuiButtonBase-root-105 MuiButton-root-79 MuiButton-text-81 MuiButton-flat-84"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -55,17 +57,16 @@ exports[`renders correctly 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
+        tabIndex="0"
         type="button"
       >
         <span
-          className="MuiButton-label-65"
+          className="MuiButton-label-80"
         >
           This is a buttonText
         </span>
         <span
-          className="MuiTouchRipple-root-79"
+          className="MuiTouchRipple-root-108"
         />
       </button>
     </div>
@@ -78,20 +79,21 @@ exports[`renders correctly if a team link was provided 1`] = `
   className="withRouter-RetroAppBar--root-1"
 >
   <header
-    className="MuiPaper-root-10 MuiPaper-shadow4-16 MuiAppBar-root-3 MuiAppBar-positionFixed-4 MuiAppBar-colorPrimary-8 mui-fixed"
+    className="MuiPaper-root-12 MuiPaper-elevation4-18 MuiAppBar-root-3 MuiAppBar-positionFixed-4 MuiAppBar-colorPrimary-10 mui-fixed"
   >
     <div
-      className="MuiToolbar-root-37 MuiToolbar-gutters-38"
+      className="MuiToolbar-root-39 MuiToolbar-regular-41 MuiToolbar-gutters-40"
     >
-      <h2
-        className="MuiTypography-root-39 MuiTypography-title-45 MuiTypography-colorInherit-58 MuiTypography-alignCenter-52 withRouter-RetroAppBar--flex-2"
+      <p
+        className="MuiTypography-root-43 MuiTypography-body1-52 MuiTypography-colorInherit-72 MuiTypography-alignCenter-66 withRouter-RetroAppBar--flex-2"
+        type="title"
       >
         <a
-          className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
-          disabled={false}
+          className="MuiButtonBase-root-105 MuiButton-root-79 MuiButton-text-81 MuiButton-flat-84"
           href="/team/Team"
           onBlur={[Function]}
           onClick={[Function]}
+          onContextMenu={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
@@ -102,24 +104,24 @@ exports[`renders correctly if a team link was provided 1`] = `
           onTouchMove={[Function]}
           onTouchStart={[Function]}
           role="button"
-          tabIndex={0}
+          tabIndex="0"
         >
           <span
-            className="MuiButton-label-65"
+            className="MuiButton-label-80"
           >
             Retrobox
           </span>
           <span
-            className="MuiTouchRipple-root-79"
+            className="MuiTouchRipple-root-108"
           />
         </a>
-      </h2>
+      </p>
       <a
-        className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
-        disabled={false}
+        className="MuiButtonBase-root-105 MuiButton-root-79 MuiButton-text-81 MuiButton-flat-84"
         href="/team/Team/list"
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -130,22 +132,23 @@ exports[`renders correctly if a team link was provided 1`] = `
         onTouchMove={[Function]}
         onTouchStart={[Function]}
         role="button"
-        tabIndex={0}
+        tabIndex="0"
       >
         <span
-          className="MuiButton-label-65"
+          className="MuiButton-label-80"
         >
           List Team items
         </span>
         <span
-          className="MuiTouchRipple-root-79"
+          className="MuiTouchRipple-root-108"
         />
       </a>
       <button
-        className="MuiButtonBase-root-77 MuiButton-root-63 MuiButton-flatContrast-68"
+        className="MuiButtonBase-root-105 MuiButton-root-79 MuiButton-text-81 MuiButton-flat-84"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onContextMenu={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
@@ -155,17 +158,16 @@ exports[`renders correctly if a team link was provided 1`] = `
         onTouchEnd={[Function]}
         onTouchMove={[Function]}
         onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
+        tabIndex="0"
         type="button"
       >
         <span
-          className="MuiButton-label-65"
+          className="MuiButton-label-80"
         >
           This is a buttonText
         </span>
         <span
-          className="MuiTouchRipple-root-79"
+          className="MuiTouchRipple-root-108"
         />
       </button>
     </div>
