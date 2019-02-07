@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
@@ -21,11 +21,7 @@ const styles = theme => ({
 const RetroAppBar = props => {
   const buildTitleLink = team => {
     return (
-      <Button
-        color="contrast"
-        component={Link}
-        to={team ? `/team/${team}` : '/'}
-      >
+      <Button component={Link} to={team ? `/team/${team}` : '/'}>
         Retrobox
       </Button>
     );
@@ -34,7 +30,7 @@ const RetroAppBar = props => {
   const buildTeamLink = teamLink => {
     if (teamLink) {
       return (
-        <Button color="contrast" component={Link} to={`/team/${teamLink}/list`}>
+        <Button component={Link} to={`/team/${teamLink}/list`}>
           {`List ${teamLink} items`}
         </Button>
       );
@@ -55,9 +51,7 @@ const RetroAppBar = props => {
             {buildTitleLink(props.teamLink)}
           </Typography>
           {buildTeamLink(props.teamLink)}
-          <Button color="contrast" onClick={props.handleOnClick}>
-            {props.buttonText}
-          </Button>
+          <Button onClick={props.handleOnClick}>{props.buttonText}</Button>
         </Toolbar>
       </AppBar>
     </div>

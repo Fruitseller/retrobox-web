@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import { withStyles } from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import Input from 'material-ui/Input';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 import RetroAppBar from './RetroAppBar';
 
 const styles = theme => ({
@@ -46,7 +46,7 @@ class TeamPicker extends Component {
               this.teamInput = input;
             }}
           />
-          <Button raised type="submit" className={classes.button}>
+          <Button raised="true" type="submit" className={classes.button}>
             Open team Retrobox
           </Button>
         </form>

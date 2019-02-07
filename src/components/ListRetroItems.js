@@ -1,8 +1,8 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
-import List from 'material-ui/List';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
+import Typography from '@material-ui/core/Typography';
 import { app, base } from './../base';
 import RetroItem from './RetroItem';
 import RetroAppBar from './RetroAppBar';

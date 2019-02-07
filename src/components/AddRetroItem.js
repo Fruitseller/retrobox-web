@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import { withStyles } from 'material-ui/styles';
-import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl } from 'material-ui/Form';
+import { withStyles } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
 import RetroAppBar from './RetroAppBar';
 
 const styles = theme => ({

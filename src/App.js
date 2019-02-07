@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Spinner from 'react-spinkit';
 import AddRetroItem from './components/AddRetroItem';
 import ListRetroItems from './components/ListRetroItems';
