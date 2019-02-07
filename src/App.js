@@ -28,7 +28,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    app.auth().onAuthStateChanged((user, error) => {
+    app.auth().onAuthStateChanged(user => {
       if (user) {
         this.authHandler(null, { user });
       }
@@ -44,7 +44,7 @@ class App extends Component {
       .database()
       .ref()
       .child('data');
-    storeRef.once('value', snapshot => {
+    storeRef.once('value', () => {
       this.setState(
         {
           userData: {
