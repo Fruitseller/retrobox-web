@@ -89,22 +89,10 @@ exports[`renders correctly 1`] = `
     >
       <input
         aria-label="Description"
-        autoComplete={undefined}
-        autoFocus={undefined}
         className="MuiInput-input-97 MuiInput-inputSingleline-100"
-        defaultValue={undefined}
-        disabled={undefined}
-        id={undefined}
-        name={undefined}
         onChange={[Function]}
-        onKeyDown={undefined}
-        onKeyUp={undefined}
         placeholder="Team Name"
-        readOnly={undefined}
-        required={undefined}
-        rows={undefined}
         type="text"
-        value={undefined}
       />
     </div>
     <button
