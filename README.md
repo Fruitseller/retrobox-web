@@ -26,11 +26,10 @@ REACT_APP_MESSAGING_SENDER_ID=<YOUR_DATA>
 ### Installing
 
 ```
-yarn install
-yarn start
+npm install
+npm start
 ```
-
 
 ## How to work with this app
 
-This is a simple create-react-app so you can find all tips [here](README.React.md).
+This is simply a create-react-app so you can find all infos [here](README.React.md).
