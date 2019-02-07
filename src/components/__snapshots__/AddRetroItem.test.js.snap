@@ -95,22 +95,11 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
       >
         <input
-          autoComplete={undefined}
-          autoFocus={undefined}
           className="MuiInput-input-110 MuiInput-inputSingleline-113"
-          defaultValue={undefined}
           disabled={false}
           id="thoughts"
-          name={undefined}
           onChange={[Function]}
-          onKeyDown={undefined}
-          onKeyUp={undefined}
-          placeholder={undefined}
-          readOnly={undefined}
-          required={undefined}
-          rows={undefined}
           type="text"
-          value={undefined}
         />
       </div>
     </div>
