@@ -35,3 +35,18 @@ it('renders correctly', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('renders correctly without authorName', () => {
+  const tree = renderer
+    .create(
+      <RetroItem
+        teamId="teamId"
+        authorId="authorId"
+        timestamp="12345678"
+        message="massage"
+        removeItem={() => {}}
+      />
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
